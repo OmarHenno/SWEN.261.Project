@@ -1,6 +1,6 @@
 ## SWEN.601 Project
-#Madya Alfalasi - 390006108
-#Omar Henno - 406000628
-#Joy - 
-#Dhabya - 
+1. Madya Alfalasi - 390006108
+2. Omar Henno - 406000628
+3. Joy - 
+4. Dhabya - 
 
