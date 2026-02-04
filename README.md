@@ -12,7 +12,7 @@
 ## Product Vision
 FOR people who frequently travel or plan trips online
 WHO need a simple, fast, and trustworthy way to purchase plane tickets without unnecessary complexity
-THE Plane Ticket Booking Website IS A modern, ad-free online booking platform
+THE Wandria Booking Website IS A modern, ad-free online booking platform
 THAT simplifies the booking process into no more than three steps, while offering mileage-based discounts and special offers on birthdays and anniversaries
 UNLIKE traditional online travel agencies
 OUR PRODUCT provides short connection, full transparency, a user-friendly interface, and a responsive design optimized for all devices
