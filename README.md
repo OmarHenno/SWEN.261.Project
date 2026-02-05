@@ -22,4 +22,4 @@ OUR PRODUCT provides short connection, full transparency, a user-friendly interf
 https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content=DAHARy3NtbU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton 
 
 ## Trello
-[Trello] https://trello.com/b/gXYHjL1e/swen261
+[Trello](https://trello.com/b/gXYHjL1e/swen261)
