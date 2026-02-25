@@ -34,7 +34,9 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
 
 ### Sprint 1 Details:
 **Sprint Goal:** Deliver a working Flight Catalog page that allows users to view all available flights with complete details through the web interface.
+
 **Duration:** [2026/2/11] to [2026/2/25]
+
 **Completed Stories:**
 1. US-03: [Browse Available Flights]
 
