@@ -20,5 +20,26 @@ OUR PRODUCT provides short connection, full transparency, a user-friendly interf
 ## Presentation
 https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content=DAHARy3NtbU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton 
 
-## Trello
-[Trello](https://trello.com/b/gXYHjL1e/swen261)
+
+
+
+## Assignment 1 Progress
+### Completed:
+- [x] Domain Analysis & Class Diagram
+- [x] Glossary of Terms
+- [x] Functional Requirements Document
+- [x] Traceability Matrix
+- [x] User Stories Definition (Total: XX stories)
+- [x] Sprint Implementation (3 stories completed)
+
+### Sprint 1 Details:
+**Sprint Goal:** [Your sprint goal]
+**Duration:** [2026/2/11] to [2026/2/25]
+**Completed Stories:**
+1. US-03: [Browse Available Flights]
+
+## Links
+- **GitHub Repository:** [https://github.com/OmarHenno/SWEN.261.Project]
+- **Trello Board:** [https://trello.com/b/oohUrZmx/airline-booking-system]
+- **Functional Requirements:** [https://docs.google.com/document/d/1hIS5PdctGRMD0HX2McC6kIexj2GsmNJRGOslc2PiyXw/edit?tab=t.t1tiqzsjl4rb#heading=h.65a1jwayjipc]
+- **Traceability Matrix:** [https://docs.google.com/spreadsheets/d/1qqbs3zcrVFXm439ohfdp7rLJMMd8G21_1qi0N8dOSZ4/edit?gid=0#gid=0]
