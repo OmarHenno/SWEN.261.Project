@@ -29,7 +29,7 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
 - [x] Glossary of Terms
 - [x] Functional Requirements Document
 - [x] Traceability Matrix
-- [x] User Stories Definition (Total: XX stories)
+- [x] User Stories Definition (Total: 13 stories)
 - [x] Sprint Implementation (3 stories completed)
 
 ### Sprint 1 Details:
