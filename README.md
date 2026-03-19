@@ -41,7 +41,7 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
 1. US-03: [Browse Available Flights]
 
 ## Assignment 2 – Completed User Stories
-2. US-04: Search Flights by Destination
+1. US-04: Search Flights by Destination
 - Implemented by: Madya Alfalasi  
 - Tasks:
      - Implemented searchByName() in FlightService (case-insensitive)
