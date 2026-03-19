@@ -6,7 +6,13 @@
 <body>
 
 <h1>Available Flights</h1>
+<h2>Search Flights by Destination</h2>
 
+<input type="text" id="nameInput" placeholder="e.g. Paris, Dubai, London">
+<button onclick="searchByName()">Search</button>
+<button onclick="resetResults()">Show All</button>
+
+<div id="search-results"></div>
 <table>
     <tr>
         <th>Flight #</th>
@@ -22,13 +28,65 @@
             <td>{{flightNumber}}</td>
             <td>{{destination}}</td>
             <td>{{formattedDepartureTime}}</td>
-            <td>{{seats}}</td>
+            <td>{{seatsAvailable}}</td>
             <td>{{price}}</td>
             <td>{{availabilityStatus}}</td>
         </tr>
     {{/flights}}
 
 </table>
+<script>
+    function searchByName() {
+        const keyword = document.getElementById('nameInput').value.trim();
+        const container = document.getElementById('search-results');
 
+        if (!keyword) {
+            container.innerHTML = '<p>Please enter a destination.</p>';
+            return;
+        }
+
+        fetch(`/api/flights/search/name?keyword=${encodeURIComponent(keyword)}`)
+                .then(response => response.json())
+                .then(flights => {
+                    if (!flights || flights.length === 0) {
+                        container.innerHTML = '<p>No results found.</p>';
+                        return;
+                    }
+
+                    container.innerHTML = `
+                    <h3>Search Results</h3>
+                    <table>
+                        <tr>
+                            <th>Flight #</th>
+                            <th>Destination</th>
+                            <th>Date</th>
+                            <th>Seats</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                        ${flights.map(f => `
+                            <tr>
+                                <td>${f.flightNumber}</td>
+                                <td>${f.destination}</td>
+                                <td>${f.formattedDepartureTime}</td>
+                                <td>${f.seatsAvailable}</td>
+                                <td>${f.price}</td>
+                                <td>${f.availabilityStatus}</td>
+                            </tr>
+                        `).join('')}
+                    </table>
+                `;
+                })
+                .catch(error => {
+                    console.error('Search failed:', error);
+                    container.innerHTML = '<p>Search failed. Please try again.</p>';
+                });
+    }
+
+    function resetResults() {
+        document.getElementById('search-results').innerHTML = '';
+        document.getElementById('nameInput').value = '';
+    }
+</script>
 </body>
 </html>

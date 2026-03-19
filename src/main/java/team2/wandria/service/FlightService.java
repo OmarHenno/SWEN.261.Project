@@ -38,4 +38,24 @@ public class FlightService {
 
         return Collections.unmodifiableList(flights);
     }
+    // Search by destination name
+    public List<Flight> searchByName(String keyword) {
+
+        if (keyword == null || keyword.trim().isEmpty()) {
+            return flights;
+        }
+
+        String lower = keyword.trim().toLowerCase();
+
+        List<Flight> result = new ArrayList<>();
+
+        for (Flight flight : flights) {
+            if (flight.getDestination() != null &&
+                    flight.getDestination().toLowerCase().contains(lower)) {
+                result.add(flight);
+            }
+        }
+
+        return result;
+    }
 }
