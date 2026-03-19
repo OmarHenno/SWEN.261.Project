@@ -99,8 +99,28 @@ public class FlightService {
                 result.add(flight);
             }
         }
+        return result;
+    }
+
+    public List<Flight> searchByCategory(String category) {
+        if (category == null || category.trim().isEmpty()) {
+            return flights;
+        }
+
+        List<Flight> result = new ArrayList<>();
+
+        for (Flight flight : flights) {
+            if (flight.getCategory() != null &&
+                    flight.getCategory().equalsIgnoreCase(category.trim())) {
+                result.add(flight);
+            }
+        }
 
         return result;
     }
+
+
+
+
 
 }
