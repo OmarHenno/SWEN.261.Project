@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Wandria Flights</title>
-    <link rel="stylesheet" href="/style.css"></head>
+    <link rel="stylesheet" href="/style.css">
+</head>
 <body>
 
 <h1>Available Flights</h1>
@@ -13,10 +14,12 @@
 <button onclick="resetResults()">Show All</button>
 
 <div id="search-results"></div>
+
 <table>
     <tr>
         <th>Flight #</th>
         <th>Destination</th>
+        <th>Category</th>
         <th>Date</th>
         <th>Seats</th>
         <th>Price</th>
@@ -27,6 +30,7 @@
         <tr>
             <td>{{flightNumber}}</td>
             <td>{{destination}}</td>
+            <td>{{category}}</td>
             <td>{{formattedDepartureTime}}</td>
             <td>{{seatsAvailable}}</td>
             <td>{{price}}</td>
@@ -35,6 +39,7 @@
     {{/flights}}
 
 </table>
+
 <script>
     function searchByName() {
         const keyword = document.getElementById('nameInput').value.trim();
@@ -59,6 +64,7 @@
                         <tr>
                             <th>Flight #</th>
                             <th>Destination</th>
+                            <th>Category</th>
                             <th>Date</th>
                             <th>Seats</th>
                             <th>Price</th>
@@ -68,6 +74,7 @@
                             <tr>
                                 <td>${f.flightNumber}</td>
                                 <td>${f.destination}</td>
+                                <td>${f.category}</td>
                                 <td>${f.formattedDepartureTime}</td>
                                 <td>${f.seatsAvailable}</td>
                                 <td>${f.price}</td>
@@ -88,5 +95,6 @@
         document.getElementById('nameInput').value = '';
     }
 </script>
+
 </body>
 </html>
