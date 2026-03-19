@@ -40,6 +40,14 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
 **Completed Stories:**
 1. US-03: [Browse Available Flights]
 
+## Assignment 2 – Completed User Stories
+1. US-04: Search Flights by Destination
+- Implemented by: Madya Alfalasi  
+- Tasks:
+     - Implemented searchByName() in FlightService (case-insensitive)
+     - Added GET /api/flights/search/name endpoint
+     - Connected frontend using Fetch API
+     - Displayed filtered results dynamically
 ## Links
 - **GitHub Repository:** [https://github.com/OmarHenno/SWEN.261.Project]
 - **Trello Board:** [https://trello.com/b/oohUrZmx/airline-booking-system]

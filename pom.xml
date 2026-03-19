@@ -7,7 +7,7 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>4.0.3</version>
         <relativePath/> <!-- lookup parent from repository -->
-    </parent>
+    </parent>-
     <groupId>team2</groupId>
     <artifactId>Wandria</artifactId>
     <version>0.0.1-SNAPSHOT</version>
