@@ -30,4 +30,11 @@ public class FlightController {
     public List<Flight> searchByName(@RequestParam String keyword) {
         return flightService.searchByName(keyword);
     }
-}
+
+
+    @GetMapping("/api/flights/search/category")
+    @ResponseBody
+    public List<Flight> searchByCategory(@RequestParam String category) {
+        return flightService.searchByCategory(category);
+    }}
+
