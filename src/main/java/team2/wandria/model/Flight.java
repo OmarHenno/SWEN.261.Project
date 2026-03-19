@@ -7,14 +7,16 @@ public class Flight {
 
     private String flightNumber;
     private String destination;
-    private LocalDateTime departureTime;  // Date + Time
+    private String category;
+    private LocalDateTime departureTime;
     private int seats;
     private double price;
 
-    public Flight(String flightNumber, String destination,
+    public Flight(String flightNumber, String destination, String category,
                   LocalDateTime departureTime, int seats, double price) {
         this.flightNumber = flightNumber;
         this.destination = destination;
+        this.category = category;
         this.departureTime = departureTime;
         this.seats = seats;
         this.price = price;
@@ -26,6 +28,10 @@ public class Flight {
 
     public String getDestination() {
         return destination;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public LocalDateTime getDepartureTime() {
@@ -45,7 +51,7 @@ public class Flight {
         return departureTime.format(formatter);
     }
 
-    public String getAvailabilityStatus() { //get availability for whether a flight can hold more people based on whether there is seats or nor
+    public String getAvailabilityStatus() {
         if (seats > 0) {
             return "Available";
         } else {
