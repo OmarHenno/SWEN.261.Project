@@ -48,6 +48,14 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
      - Added GET /api/flights/search/name endpoint
      - Connected frontend using Fetch API
      - Displayed filtered results dynamically
+2. US-06: Add Flight to booking cart
+- Implemented by: Joy Almekha
+- Tasks:
+     - Created a collection ArrayList in FlightService to store saved flights
+     - Implemented addToCollection() method to save flights using flight number
+     - Added POST /api/flights/collection endpoint in FlightController
+     - Connected frontend button to backend using Fetch API
+     - Displayed confirmation message after adding a flight to the collection
 ## Links
 - **GitHub Repository:** [https://github.com/OmarHenno/SWEN.261.Project]
 - **Trello Board:** [https://trello.com/b/oohUrZmx/airline-booking-system]
