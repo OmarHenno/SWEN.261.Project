@@ -7,6 +7,7 @@ import team2.wandria.service.FlightService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -36,5 +37,12 @@ public class FlightController {
     @ResponseBody
     public List<Flight> searchByCategory(@RequestParam String category) {
         return flightService.searchByCategory(category);
-    }}
+    }
+    @PostMapping("/api/flights/collection")
+    @ResponseBody
+    public String addToCollection(@RequestParam String flightNumber) {
+        flightService.addToCollection(flightNumber);
+        return "Flight added to collection";
+    }
+}
 

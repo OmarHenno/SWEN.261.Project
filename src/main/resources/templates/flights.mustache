@@ -31,6 +31,7 @@
         <th>Seats</th>
         <th>Price</th>
         <th>Status</th>
+        <th>Action</th>
     </tr>
 
     {{#flights}}
@@ -42,6 +43,9 @@
             <td>{{seatsAvailable}}</td>
             <td>{{price}}</td>
             <td>{{availabilityStatus}}</td>
+            <td>
+                <button onclick="addToCollection('{{flightNumber}}')">Add to My Collection</button>
+            </td>
         </tr>
    {{/flights}}
 
@@ -149,6 +153,19 @@
     function resetResults() {
         document.getElementById('search-results').innerHTML = '';
         document.getElementById('nameInput').value = '';
+    }
+    function addToCollection(flightNumber) {
+        fetch(`/api/flights/collection?flightNumber=${encodeURIComponent(flightNumber)}`, {
+            method: 'POST'
+        })
+                .then(response => response.text())
+                .then(message => {
+                    alert(message);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to add flight.');
+                });
     }
 </script>
 
