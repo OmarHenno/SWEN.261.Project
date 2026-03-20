@@ -48,7 +48,17 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
      - Added GET /api/flights/search/name endpoint
      - Connected frontend using Fetch API
      - Displayed filtered results dynamically
-2. US-06: Add Flight to booking cart
+ 
+2. US-04: Search Flights by Category
+- Implemented by: Omar Henno
+- Tasks:
+     - Implement searchByCategory() in FlightService
+     - Create search endpoint (Get /api/flights/search/category)
+     - Add category dropdown in frontend
+     - Connect Fetch API to frontend
+     - Display filtered results dynamically
+
+4. US-06: Add Flight to booking cart
 - Implemented by: Joy Almekha
 - Tasks:
      - Created a collection ArrayList in FlightService to store saved flights
