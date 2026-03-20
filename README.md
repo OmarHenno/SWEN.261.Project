@@ -43,7 +43,7 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
 ## Assignment 2 – Completed User Stories
 
 1. Flight Catalog Improvements
-- implemented by: Omar Henno
+- implemented by: Ahmad Younes
 - Tasks:
      - Added category attribute to Flight model
      - Updated Flight constructor and getters
