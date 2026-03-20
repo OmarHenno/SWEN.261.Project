@@ -7,7 +7,19 @@
 <body>
 
 <h1>Available Flights</h1>
+
+<a href="/collection">
+    <button>View My Collection</button>
+</a>
+
 <h2>Search Flights by Destination</h2>
+
+<select id="categorySelect">
+    <option value="">Select Category...</option>
+    <option value="Domestic">Domestic</option>
+    <option value="International">International</option>
+</select>
+<button onclick="searchByCategory()">Search Category</button>
 
 <input type="text" id="nameInput" placeholder="e.g. Paris, Dubai, London">
 <button onclick="searchByName()">Search</button>
@@ -24,6 +36,7 @@
         <th>Seats</th>
         <th>Price</th>
         <th>Status</th>
+        <th>Action</th>
     </tr>
 
     {{#flights}}
@@ -35,6 +48,9 @@
             <td>{{seatsAvailable}}</td>
             <td>{{price}}</td>
             <td>{{availabilityStatus}}</td>
+            <td>
+                <button onclick="addToCollection('{{flightNumber}}')">Add to My Collection</button>
+            </td>
         </tr>
    {{/flights}}
 
@@ -89,10 +105,72 @@
                     container.innerHTML = '<p>Search failed. Please try again.</p>';
                 });
     }
+        function searchByCategory() {
+            const category = document.getElementById('categorySelect').value;
+            const container = document.getElementById('search-results');
+
+            if (!category) {
+                container.innerHTML = '<p>Please select a category from the dropdown.</p>';
+                return;
+            }
+
+            fetch(`/api/flights/search/category?category=${encodeURIComponent(category)}`)
+                    .then(response => response.json())
+                    .then(flights => {
+                        if (!flights || flights.length === 0) {
+                            container.innerHTML = '<p>No flights found for this category.</p>';
+                            return;
+                        }
+
+                        container.innerHTML = `
+                    <h3>Category Results: ${category}</h3>
+                    <table>
+                        <tr>
+                            <th>Flight #</th>
+                            <th>Destination</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Seats</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                        ${flights.map(f => `
+                            <tr>
+                                <td>${f.flightNumber}</td>
+                                <td>${f.destination}</td>
+                                <td>${f.category}</td>
+                                <td>${f.formattedDepartureTime}</td>
+                                <td>${f.seatsAvailable}</td>
+                                <td>${f.price}</td>
+                                <td>${f.availabilityStatus}</td>
+                            </tr>
+                        `).join('')}
+                    </table>
+                `;
+                    })
+                    .catch(error => {
+                        console.error('Search failed:', error);
+                        container.innerHTML = '<p>Category search failed. Please try again.</p>';
+                    });
+
+    }
 
     function resetResults() {
         document.getElementById('search-results').innerHTML = '';
         document.getElementById('nameInput').value = '';
+    }
+    function addToCollection(flightNumber) {
+        fetch(`/api/flights/collection?flightNumber=${encodeURIComponent(flightNumber)}`, {
+            method: 'POST'
+        })
+                .then(response => response.text())
+                .then(message => {
+                    alert(message);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to add flight.');
+                });
     }
 </script>
 

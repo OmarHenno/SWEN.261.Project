@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Flight Collection</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>My Flight Collection</h1>
+
+<a href="/flights">
+    <button>Back to Flights</button>
+</a>
+
+<table>
+    <tr>
+        <th>Flight #</th>
+        <th>Destination</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Seats</th>
+        <th>Price</th>
+        <th>Status</th>
+    </tr>
+
+    {{#flights}}
+        <tr>
+            <td>{{flightNumber}}</td>
+            <td>{{destination}}</td>
+            <td>{{category}}</td>
+            <td>{{formattedDepartureTime}}</td>
+            <td>{{seatsAvailable}}</td>
+            <td>{{price}}</td>
+            <td>{{availabilityStatus}}</td>
+        </tr>
+    {{/flights}}
+
+</table>
+
+</body>
+</html>

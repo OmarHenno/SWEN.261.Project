@@ -44,5 +44,10 @@ public class FlightController {
         flightService.addToCollection(flightNumber);
         return "Flight added to collection";
     }
-}
 
+    @GetMapping("/collection")
+    public String getCollection(Model model) {
+        model.addAttribute("flights", flightService.getCollection());
+        return "collection";
+    }
+}
