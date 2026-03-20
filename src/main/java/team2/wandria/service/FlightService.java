@@ -13,6 +13,7 @@ import java.util.List;
 public class FlightService {
 
     private final List<Flight> flights = new ArrayList<>();
+    private final List<Flight> collection = new ArrayList<>();
 
     public FlightService() { //temporary memory data until a database is implemented in future sprints
 
@@ -115,10 +116,18 @@ public class FlightService {
                 result.add(flight);
             }
         }
-
         return result;
     }
+    public void addToCollection(String flightNumber) {
+        Flight flight = findByFlightNumber(flightNumber);
+        if (flight != null) {
+            collection.add(flight);
+        }
+    }
 
+    public List<Flight> getCollection() {
+        return collection;
+    }
 
 
 
