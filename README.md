@@ -66,6 +66,18 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
      - Added POST /api/flights/collection endpoint in FlightController
      - Connected frontend button to backend using Fetch API
      - Displayed confirmation message after adding a flight to the collection
+ 
+5. US-09: View My Collection
+- Implemented by: Dhabya Alsuwaidi
+- Tasks:
+    - Added GET /collection mapping in FlightController
+    - Retrieved saved flights from FlightService
+    - Passed collection data to the Mustache view
+    - Created collection.mustache page
+    - Added “View My Collection” button in frontend
+    - Displayed saved flights in a table
+    - Added “Back to Flights” button for navigation
+      
 ## Links
 - **GitHub Repository:** [https://github.com/OmarHenno/SWEN.261.Project]
 - **Trello Board:** [https://trello.com/b/oohUrZmx/airline-booking-system]
