@@ -41,15 +41,21 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
 1. US-03: [Browse Available Flights]
 
 ## Assignment 2 – Completed User Stories
-1. US-04: Search Flights by Destination
-- Implemented by: Madya Alfalasi  
+
+1. Flight Catalog Improvements
+- implemented by: Omar Henno
 - Tasks:
-     - Implemented searchByName() in FlightService (case-insensitive)
-     - Added GET /api/flights/search/name endpoint
-     - Connected frontend using Fetch API
-     - Displayed filtered results dynamically
+     - Added category attribute to Flight model
+     - Updated Flight constructor and getters
+     - Implemented findByFlightNumber() method in FlightService
+     - Implemented findAllSortedByPrice() method (ascending)
+     - Updated flights.mustache to display category
+     - Created index.mustache home page
+     - Created HomeController with GET mapping for /
+     - Added navigation button to /flights
+     - Applied basic styling using style.css
  
-2. US-04: Search Flights by Category
+3. US-04: Search Flights by Category
 - Implemented by: Omar Henno
 - Tasks:
      - Implement searchByCategory() in FlightService
@@ -57,7 +63,15 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
      - Add category dropdown in frontend
      - Connect Fetch API to frontend
      - Filtered results are displayed dynamically
-
+  
+3. US-04: Search Flights by Destination
+- Implemented by: Madya Alfalasi  
+- Tasks:
+     - Implemented searchByName() in FlightService (case-insensitive)
+     - Added GET /api/flights/search/name endpoint
+     - Connected frontend using Fetch API
+     - Displayed filtered results dynamically
+  
 4. US-06: Add Flight to booking cart
 - Implemented by: Joy Almekha
 - Tasks:
