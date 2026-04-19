@@ -1,3 +1,34 @@
+let currentUser = null;
+
+function loadCurrentUser() {
+    return fetch("/auth/current-user")
+        .then(response => {
+            if (!response.ok) {
+                currentUser = null;
+                return null;
+            }
+            return response.json();
+        })
+        .then(user => {
+            currentUser = user;
+            updateAdminUI();
+        })
+        .catch(() => {
+            currentUser = null;
+            updateAdminUI();
+        });
+}
+
+function updateAdminUI() {
+    const addButton = document.getElementById("addFlightButton");
+
+    if (!currentUser || currentUser.role !== "ADMIN") {
+        addButton.style.display = "none";
+    } else {
+        addButton.style.display = "inline-block";
+    }
+}
+
 function renderTable(flights) {
     const tableBody = document.getElementById("flightsTableBody");
     const message = document.getElementById("message");
@@ -13,6 +44,15 @@ function renderTable(flights) {
 
     flights.forEach(function (flight) {
         const row = document.createElement("tr");
+
+        let actionsHtml = "";
+        if (currentUser && currentUser.role === "ADMIN") {
+            actionsHtml = `
+                <button onclick="showEditForm('${flight.flightNumber}')" style="background:#2196F3;color:white;margin-right:5px;">Edit</button>
+                <button onclick="confirmDelete('${flight.flightNumber}')" style="background:#f44336;color:white;">Delete</button>
+            `;
+        }
+
         row.innerHTML = `
             <td>${flight.flightNumber}</td>
             <td>${flight.destination}</td>
@@ -20,10 +60,7 @@ function renderTable(flights) {
             <td>${flight.formattedDepartureTime}</td>
             <td>${flight.seatsAvailable}</td>
             <td>${flight.price}</td>
-            <td>
-                 <button onclick="showEditForm('${flight.flightNumber}')" style="background:#2196F3;color:white;margin-right:5px;">Edit</button>
-                 <button onclick="confirmDelete('${flight.flightNumber}')" style="background:#f44336;color:white;">Delete</button>
-            </td>
+            <td>${actionsHtml}</td>
         `;
         tableBody.appendChild(row);
     });
@@ -33,7 +70,9 @@ function loadAllFlights() {
     fetch("/api/flights")
         .then(response => response.json())
         .then(data => renderTable(data))
-        .catch(error => document.getElementById("message").textContent = "Error loading flights.");
+        .catch(() => {
+            document.getElementById("message").textContent = "Error loading flights.";
+        });
 }
 
 function searchByDestination() {
@@ -42,7 +81,9 @@ function searchByDestination() {
     fetch(`/api/flights/search/name?keyword=${encodeURIComponent(keyword)}`)
         .then(response => response.json())
         .then(data => renderTable(data))
-        .catch(error => document.getElementById("message").textContent = "Error searching destination.");
+        .catch(() => {
+            document.getElementById("message").textContent = "Error searching destination.";
+        });
 }
 
 function searchByCategory() {
@@ -56,12 +97,10 @@ function searchByCategory() {
     fetch(`/api/flights/search/category?category=${encodeURIComponent(category)}`)
         .then(response => response.json())
         .then(data => renderTable(data))
-        .catch(error => document.getElementById("message").textContent = "Error searching category.");
+        .catch(() => {
+            document.getElementById("message").textContent = "Error searching category.";
+        });
 }
-
-
-
-window.onload = loadAllFlights;
 
 function showAddForm() {
     document.getElementById("formTitle").textContent = "Add New Flight";
@@ -88,7 +127,17 @@ function showEditForm(flightNumber) {
             document.getElementById("fCategory").value = flight.category;
             document.getElementById("fSeats").value = flight.seatsAvailable;
             document.getElementById("fPrice").value = flight.price;
+
+            if (flight.departureTime) {
+                document.getElementById("fDepartureTime").value = flight.departureTime.substring(0, 16);
+            } else {
+                document.getElementById("fDepartureTime").value = "";
+            }
+
             document.getElementById("flightForm").style.display = "block";
+        })
+        .catch(() => {
+            document.getElementById("message").textContent = "Error loading flight details.";
         });
 }
 
@@ -106,7 +155,7 @@ function submitFlightForm() {
     };
 
     const isEdit = editingId !== "";
-    const url = isEdit ? `/flights/${editingId}/update` : `/flights/add`;
+    const url = isEdit ? `/api/flights/${editingId}/update` : `/api/flights/add`;
     const method = isEdit ? "PUT" : "POST";
 
     fetch(url, {
@@ -114,28 +163,51 @@ function submitFlightForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(flightData)
     })
-        .then(response => response.json())
+        .then(async response => {
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => null);
+                throw new Error(errorData?.message || "Save failed");
+            }
+            return response.json();
+        })
         .then(() => {
-            const msg = isEdit ? "Flight updated successfully!" : "Flight added successfully!";
-            document.getElementById("message").textContent = msg;
+            document.getElementById("message").textContent =
+                isEdit ? "Flight updated successfully!" : "Flight added successfully!";
             document.getElementById("flightForm").style.display = "none";
             loadAllFlights();
         })
-        .catch(() => document.getElementById("message").textContent = "Error saving flight.");
+        .catch(error => {
+            document.getElementById("message").textContent = error.message;
+        });
 }
 
 function confirmDelete(flightNumber) {
     if (confirm(`Are you sure you want to delete flight ${flightNumber}?`)) {
-        fetch(`/flights/${flightNumber}/delete`, { method: "DELETE" })
-            .then(response => response.json())
+        fetch(`/api/flights/${flightNumber}/delete`, { method: "DELETE" })
+            .then(async response => {
+                if (!response.ok) {
+                    const errorData = await response.json().catch(() => null);
+                    throw new Error(errorData?.message || "Delete failed");
+                }
+                return response.json();
+            })
             .then(() => {
-                document.getElementById("message").textContent = `Flight ${flightNumber} deleted successfully!`;
+                document.getElementById("message").textContent =
+                    `Flight ${flightNumber} deleted successfully!`;
                 loadAllFlights();
             })
-            .catch(() => document.getElementById("message").textContent = "Error deleting flight.");
+            .catch(error => {
+                document.getElementById("message").textContent = error.message;
+            });
     }
 }
 
 function cancelForm() {
     document.getElementById("flightForm").style.display = "none";
 }
+
+window.onload = function () {
+    loadCurrentUser().then(() => {
+        loadAllFlights();
+    });
+};
