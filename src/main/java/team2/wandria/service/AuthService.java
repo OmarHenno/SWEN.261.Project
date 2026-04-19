@@ -18,7 +18,11 @@ public class AuthService implements AuthServiceInterface {
     public AuthService() {
         users.add(new Customer("customer1", "1234", "customer1@wandria.com", "C001"));
         users.add(new Customer("customer2", "1234", "customer2@wandria.com", "C002"));
+        users.add(new Customer("customer3", "1234", "customer3@wandria.com", "C003"));
+
         users.add(new Administrator("admin1", "admin", "admin1@wandria.com", "A001"));
+        users.add(new Administrator("admin2", "admin", "admin2@wandria.com", "A002"));
+
     }
 
     @Override
