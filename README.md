@@ -106,7 +106,24 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
   - Implement AuthService service logic (login, logout, current user retrival, and role check)
   - Create login.html and login.js with fetch, success/error messages, form input, and role based ui for frontend
 
-2. US-A3-03: Manage Flight Catalog (CRUD)
+2. US-A3-02 Flight Catalog REST + Dynamic Frontend
+- Implemented by: Omar Henno
+- Tasks:
+    - Convert existing controller to @restcontroller
+    - Update Flight model with empty constructor
+    - Add getters to Flight model
+    - Create GET /api/flights endpoint
+    - Create GET /api/flights/{id} endpoint
+    - Update flights view with empty tbody
+    - Implement JS fetch() for flights
+    - Populate table rows dynamically via JS
+    - Create GET /api/flights/search/name and /category endpoints
+    - Update HTML with search input, dropdown, and buttons
+    - Implement JS functions to fetch filtered search results
+    - Create unit tests for FlightService search and filter logic
+
+
+3. US-A3-03: Manage Flight Catalog (CRUD)
 -Implemented by: Joy
 -Tasks:
 
@@ -125,7 +142,7 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
     - Added success messages after add, update, and delete actions
     - Added unit tests for saveFlight, updateFlight, and deleteFlight (10/10 tests passing)
 
-3. US-A3-04: Manage Private Booking Cart
+4. US-A3-04: Manage Private Booking Cart
 - Implemented by: Madya Alfalasi
 - Tasks:
     - Created Cart and CartItem models
@@ -144,7 +161,6 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
     - Displayed cart items in table
     - Added quantity controls, remove button, and clear cart button
     - Displayed confirmation and error messages for cart actions
-4.
 
 5. US-A3-05: Finalize Bookings And Managing Bookings
 - Implemented by: Dhabya Alsuwaidi
