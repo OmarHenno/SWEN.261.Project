@@ -1,29 +1,20 @@
 package team2.wandria.controller;
 
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import team2.wandria.model.Flight;
 import team2.wandria.service.FlightService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-
 import java.util.List;
 
-@Controller
+@RestController
 public class FlightController {
 
     private final FlightService flightService;
 
     public FlightController(FlightService flightService) {
-        this.flightService = flightService;
-    }
 
-    @GetMapping({"/flights"}) //return the view of available flights using mustache templat
-    public String getFlights(Model model) {
-        model.addAttribute("flights", flightService.findAll());
-        return "flights";
+        this.flightService = flightService;
     }
 
     @GetMapping("/api/flights/search/name")
@@ -49,5 +40,21 @@ public class FlightController {
     public String getCollection(Model model) {
         model.addAttribute("flights", flightService.getCollection());
         return "collection";
+    }
+
+    @GetMapping("/api/flights")
+    public List<Flight> getFlights() {
+        return flightService.findAll();
+    }
+
+    @GetMapping("/api/flights/{id}")
+    public ResponseEntity<Flight> getFlightById(@PathVariable String id) {
+        Flight flight = flightService.findByFlightNumber(id);
+
+        if (flight == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(flight);
     }
 }
