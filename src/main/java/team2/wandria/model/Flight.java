@@ -59,6 +59,30 @@ public class Flight {
         }
     }
 
+    public void setFlightNumber(String flightNumber) {
+        this.flightNumber = flightNumber;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setDepartureTime(LocalDateTime departureTime) {
+        this.departureTime = departureTime;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public Flight() {
         // Empty constructor needed for testing and Spring Boot
     }

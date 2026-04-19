@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class FlightService {
 
-    private final List<Flight> flights = new ArrayList<>();
+    private List<Flight> flights = new ArrayList<>();
     private final List<Flight> collection = new ArrayList<>();
 
     public FlightService() { //temporary memory data until a database is implemented in future sprints
@@ -129,6 +129,29 @@ public class FlightService {
         return collection;
     }
 
+    public Flight saveFlight(Flight flight) {
+        flights.add(flight);
+        return flight;
+    }
+
+    public Flight updateFlight(String flightNumber, Flight updated) {
+        for (int i = 0; i < flights.size(); i++) {
+            if (flights.get(i).getFlightNumber().equalsIgnoreCase(flightNumber)) {
+                Flight existing = flights.get(i);
+                existing.setDestination(updated.getDestination());
+                existing.setCategory(updated.getCategory());
+                existing.setDepartureTime(updated.getDepartureTime());
+                existing.setSeats(updated.getSeatsAvailable());
+                existing.setPrice(updated.getPrice());
+                return existing;
+            }
+        }
+        return null;
+    }
+
+    public boolean deleteFlight(String flightNumber) {
+        return flights.removeIf(f -> f.getFlightNumber().equalsIgnoreCase(flightNumber));
+    }
 
 
 

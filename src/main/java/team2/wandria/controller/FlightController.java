@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import team2.wandria.model.Flight;
 import team2.wandria.service.FlightService;
 import java.util.List;
+import org.springframework.http.HttpStatus;
+import java.util.Map;
 
 @RestController
 public class FlightController {
@@ -56,5 +58,29 @@ public class FlightController {
         }
 
         return ResponseEntity.ok(flight);
+    }
+
+    @PostMapping("/flights/add")
+    public ResponseEntity<Flight> addFlight(@RequestBody Flight flight) {
+        Flight saved = flightService.saveFlight(flight);
+        return ResponseEntity.status(HttpStatus.CREATED).body(saved);
+    }
+
+    @PutMapping("/flights/{id}/update")
+    public ResponseEntity<Flight> updateFlight(@PathVariable String id, @RequestBody Flight flight) {
+        Flight updated = flightService.updateFlight(id, flight);
+        if (updated == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(updated);
+    }
+
+    @DeleteMapping("/flights/{id}/delete")
+    public ResponseEntity<Map<String, Object>> deleteFlight(@PathVariable String id) {
+        boolean deleted = flightService.deleteFlight(id);
+        if (!deleted) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(Map.of("success", true, "message", "Flight deleted successfully"));
     }
 }
