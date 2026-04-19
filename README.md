@@ -112,6 +112,38 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
     - Displayed cart items in table
     - Added quantity controls, remove button, and clear cart button
     - Displayed confirmation and error messages for cart actions
+
+
+2. US-A3-05: Finalize Bookings And Managing Bookings
+- Implemented by: Dhabya Alsuwaidi
+- Tasks:
+  - Created Booking model (bookingId, customerId, status, totalAmount, items)
+  - Created BookingItem model (flightNumber, quantity, finalPrice)
+  - Created UpdateBookingRequest model for booking status updates 
+  - Stored bookings and booking items in separate lists 
+  - Linked bookings to customer using customerId 
+  - Implemented checkout logic (convert cart to booking, validate seats, calculate total, clear cart)
+  - Implemented GET /booking endpoint to retrieve all bookings for current customer 
+  - Implemented GET /booking/{id} endpoint to retrieve a specific booking 
+  - Implemented POST /booking/checkout endpoint to finalize booking 
+  - Implemented PUT /booking/{id}/update endpoint to update booking status 
+  - Implemented DELETE /booking/{id}/delete endpoint to remove a booking 
+  - Reduced available flight seats after successful checkout 
+  - Restored seats when booking is cancelled 
+  - Reduced seats again when booking is uncancelled and restored to confirmed 
+  - Added “Checkout” button to cart page 
+  - Created booking.html page for booking history 
+  - Displayed bookings in table format with ID, status, total amount, and flights 
+  - Formatted flights display as “flightNumber (X ticket/tickets)” 
+  - Added Cancel button for confirmed bookings 
+  - Replaced Cancel with Uncancel button when booking status becomes cancelled 
+  - Kept Delete button visible for all bookings 
+  - Added navigation buttons (Home, Flights, Cart, Login)
+  - Displayed success and error messages for user actions 
+  - JUnit testing for BookingService
+
+
+
 ## Links
 - **GitHub Repository:** [https://github.com/OmarHenno/SWEN.261.Project]
 - **Trello Board:** [https://trello.com/b/oohUrZmx/airline-booking-system]
