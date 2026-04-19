@@ -2,19 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>My Cart</title>
+    <title>My Bookings</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<h1>My Booking Cart</h1>
+<h1>My Bookings</h1>
 
 <div style="margin-bottom: 20px;">
     <a href="/index.html"><button>Home</button></a>
     <a href="/flights.html"><button>Flights</button></a>
-    <a href="/booking.html"><button>My Bookings</button></a>
-    <button onclick="clearCart()">Clear Cart</button>
-    <button onclick="checkout()">Checkout</button>
+    <a href="/cart.html"><button>Cart</button></a>
+    <a href="/login.html"><button>Login</button></a>
 </div>
 
 <p id="message"></p>
@@ -22,16 +21,17 @@
 <table>
     <thead>
     <tr>
-        <th>Flight Number</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Total</th>
+        <th>Booking ID</th>
+        <th>Status</th>
+        <th>Total Amount</th>
+        <th>Flights</th>
         <th>Actions</th>
     </tr>
     </thead>
-    <tbody id="cartTableBody"></tbody>
+    <tbody id="bookingTableBody"></tbody>
 </table>
 
-<script src="/js/cart.js"></script>
+<script src="/js/booking.js"></script>
+
 </body>
 </html>

@@ -111,3 +111,25 @@ function clearCart() {
             document.getElementById('message').innerText = error.message;
         });
 }
+
+function checkout() {
+    fetch('/booking/checkout', {
+        method: 'POST'
+    })
+        .then(async response => {
+            const data = await response.json().catch(() => null);
+
+            if (!response.ok) {
+                throw new Error(data?.message || 'Checkout failed');
+            }
+
+            return data;
+        })
+        .then(() => {
+            alert('Booking successful');
+            window.location.href = '/booking.html';
+        })
+        .catch(error => {
+            document.getElementById('message').innerText = error.message;
+        });
+}
