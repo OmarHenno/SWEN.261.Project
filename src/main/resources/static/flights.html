@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Wandria Flights</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>Available Flights</h1>
+
+<div style="margin-bottom: 20px;">
+    <input type="text" id="destInput" placeholder="Enter destination (e.g. Dubai)">
+    <button onclick="searchByDestination()">Search Destination</button>
+
+    <select id="categoryInput" style="margin-left: 20px;">
+        <option value="Domestic">Domestic</option>
+        <option value="International">International</option>
+    </select>
+    <button onclick="searchByCategory()">Search Category</button>
+
+    <button onclick="loadAllFlights()" style="margin-left: 20px;">Show All</button>
+</div>
+
+<div>
+    <a href="/index.html">
+        <button>Home</button>
+    </a>
+</div>
+
+<p id="message"></p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Flight Number</th>
+        <th>Destination</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Seats</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody id="flightsTableBody"></tbody>
+</table>
+
+<script src="/js/flights.js"></script>
+
+</body>
+</html>

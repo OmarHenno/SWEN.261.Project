@@ -58,4 +58,8 @@ public class Flight {
             return "Sold Out";
         }
     }
+
+    public Flight() {
+        // Empty constructor needed for testing and Spring Boot
+    }
 }
