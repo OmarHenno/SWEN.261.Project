@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Cart</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<h1>My Booking Cart</h1>
+
+<div style="margin-bottom: 20px;">
+    <a href="/index.html"><button>Home</button></a>
+    <a href="/flights.html"><button>Flights</button></a>
+    <button onclick="clearCart()">Clear Cart</button>
+</div>
+
+<p id="message"></p>
+
+<table>
+    <thead>
+    <tr>
+        <th>Flight Number</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="cartTableBody"></tbody>
+</table>
+
+<script src="/js/cart.js"></script>
+</body>
+</html>
