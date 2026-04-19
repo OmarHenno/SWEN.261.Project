@@ -75,6 +75,18 @@ public class BookingServiceTest {
     }
 
     @Test
+    void updateBookingStatusShouldUncancelBooking() {
+        cartService.addFlightToCart(customer, "EK202", 1);
+        Booking booking = bookingService.checkout(customer);
+
+        bookingService.updateBookingStatus(customer, booking.getBookingId(), "CANCELLED");
+        Booking updatedBooking = bookingService.updateBookingStatus(customer, booking.getBookingId(), "CONFIRMED");
+
+        assertNotNull(updatedBooking);
+        assertEquals("CONFIRMED", updatedBooking.getStatus());
+    }
+
+    @Test
     void deleteBookingShouldRemoveBooking() {
         cartService.addFlightToCart(customer, "EK202", 1);
         Booking booking = bookingService.checkout(customer);
