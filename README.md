@@ -93,7 +93,22 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
     - Added “Back to Flights” button for navigation
 
 ## Assignment 3 – Completed User Stories
-1. US-A3-04: Manage Private Booking Cart
+
+1. US-A3-01: User Authentication & Role Handling
+- Implemented by: Ahmad Younes
+- Tasks:
+  - Create Role enum
+  - Create User, Customer, and Administrator models
+  - Create LoginRequest and UserResponse  model
+  - Implement AuthService with in-memory users
+  - Populate customer and adminstrator wit hseed samples
+  - Create authentication REST endpoints (POST /auth/login, POST /auth/logout, GET /auth/current-user)
+  - Implement AuthService service logic (login, logout, current user retrival, and role check)
+  - Create login.html and login.js with fetch, success/error messages, form input, and role based ui for frontend
+
+2.
+
+3. US-A3-04: Manage Private Booking Cart
 - Implemented by: Madya Alfalasi
 - Tasks:
     - Created Cart and CartItem models
@@ -112,9 +127,9 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
     - Displayed cart items in table
     - Added quantity controls, remove button, and clear cart button
     - Displayed confirmation and error messages for cart actions
+4.
 
-
-2. US-A3-05: Finalize Bookings And Managing Bookings
+5. US-A3-05: Finalize Bookings And Managing Bookings
 - Implemented by: Dhabya Alsuwaidi
 - Tasks:
   - Created Booking model (bookingId, customerId, status, totalAmount, items)
@@ -142,6 +157,17 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
   - Displayed success and error messages for user actions 
   - JUnit testing for BookingService
 
+6. US-A3-01: User Authentication & Role Handling
+- Implemented by: Ahmad Younes
+- Tasks:
+  - Created a consistent navigation bar across all pages with buttons for Home, Flights, Cart, Bookings, and Login
+  - Updated all pages to follow a unified design so the interface feels consistent throughout the application
+  - Enhanced buttons with better styling, hover effects, and rounded corners to improve usability
+  - Improved tables by adjusting spacing, styling headers, and adding hover effects for better readability
+  - Styled forms such as the login and flight forms to make them cleaner and easier to use
+  - Edited the shared style.css file to keep the design consistent across all pages
+  - Ensured all improvements were done without changing any backend logic
+  - Removing unused mustache files
 
 
 ## Links
