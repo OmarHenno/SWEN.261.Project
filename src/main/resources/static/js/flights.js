@@ -22,6 +22,8 @@ function loadCurrentUser() {
 function updateAdminUI() {
     const addButton = document.getElementById("addFlightButton");
 
+    if (!addButton) return;
+
     if (!currentUser || currentUser.role !== "ADMIN") {
         addButton.style.display = "none";
     } else {
@@ -46,11 +48,22 @@ function renderTable(flights) {
         const row = document.createElement("tr");
 
         let actionsHtml = "";
+
         if (currentUser && currentUser.role === "ADMIN") {
             actionsHtml = `
                 <button onclick="showEditForm('${flight.flightNumber}')" style="background:#2196F3;color:white;margin-right:5px;">Edit</button>
                 <button onclick="confirmDelete('${flight.flightNumber}')" style="background:#f44336;color:white;">Delete</button>
             `;
+        } else if (currentUser && currentUser.role === "CUSTOMER") {
+            if (flight.seatsAvailable > 0) {
+                actionsHtml = `
+                    <button onclick="addToCart('${flight.flightNumber}')" style="background:#4CAF50;color:white;">
+                        Add to Cart
+                    </button>
+                `;
+            } else {
+                actionsHtml = `<span>Sold Out</span>`;
+            }
         }
 
         row.innerHTML = `
@@ -62,6 +75,7 @@ function renderTable(flights) {
             <td>${flight.price}</td>
             <td>${actionsHtml}</td>
         `;
+
         tableBody.appendChild(row);
     });
 }
@@ -204,6 +218,32 @@ function confirmDelete(flightNumber) {
 
 function cancelForm() {
     document.getElementById("flightForm").style.display = "none";
+}
+
+function addToCart(flightNumber) {
+    fetch("/cart/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            flightNumber: flightNumber,
+            quantity: 1
+        })
+    })
+        .then(async response => {
+            const data = await response.json().catch(() => null);
+
+            if (!response.ok) {
+                throw new Error(data?.message || "Failed to add flight to cart");
+            }
+
+            return data;
+        })
+        .then(() => {
+            alert("Flight added to cart");
+        })
+        .catch(error => {
+            alert(error.message);
+        });
 }
 
 window.onload = function () {
