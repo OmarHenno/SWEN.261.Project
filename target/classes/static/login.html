@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Wandria Login</title>
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
-<h1>Login to Wandria</h1>
-
-<div class="form-box">
-    <label>Username</label>
-    <input type="text" id="username">
-
-    <label>Password</label>
-    <input type="password" id="password">
-
-    <button onclick="login()">Login</button>
-    <button onclick="logout()">Logout</button>
-
-    <p id="message"></p>
-    <p id="roleMessage"></p>
+<div class="navbar">
+    <a href="/index.html"><button>Home</button></a>
+    <a href="/flights.html"><button>Flights</button></a>
+    <a href="/cart.html"><button>Cart</button></a>
+    <a href="/booking.html"><button>Bookings</button></a>
+    <a href="/login.html"><button>Login</button></a>
 </div>
 
-<hr>
+<div class="page-container">
+    <h1>Login to Wandria</h1>
 
-<div>
-    <h3>Navigation</h3>
+    <div class="form-box">
+        <label>Username</label>
+        <input type="text" id="username">
 
-    <a href="/index.html">
-        <button>Home</button>
-    </a>
+        <label>Password</label>
+        <input type="password" id="password">
 
-    <a href="/flights.html">
-        <button>Flights</button>
-    </a>
+        <div class="top-actions" style="margin-top: 18px;">
+            <button onclick="login()">Login</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+
+        <p id="message"></p>
+        <p id="roleMessage"></p>
+    </div>
 </div>
 
 <script src="/js/login.js"></script>

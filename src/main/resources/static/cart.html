@@ -7,30 +7,37 @@
 </head>
 <body>
 
-<h1>My Booking Cart</h1>
-
-<div style="margin-bottom: 20px;">
+<div class="navbar">
     <a href="/index.html"><button>Home</button></a>
     <a href="/flights.html"><button>Flights</button></a>
-    <a href="/booking.html"><button>My Bookings</button></a>
-    <button onclick="clearCart()">Clear Cart</button>
-    <button onclick="checkout()">Checkout</button>
+    <a href="/cart.html"><button>Cart</button></a>
+    <a href="/booking.html"><button>Bookings</button></a>
+    <a href="/login.html"><button>Login</button></a>
 </div>
 
-<p id="message"></p>
+<div class="page-container">
+    <h1>My Booking Cart</h1>
 
-<table>
-    <thead>
-    <tr>
-        <th>Flight Number</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Total</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody id="cartTableBody"></tbody>
-</table>
+    <div class="top-actions">
+        <button onclick="clearCart()">Clear Cart</button>
+        <button onclick="checkout()">Checkout</button>
+    </div>
+
+    <p id="message"></p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Flight Number</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="cartTableBody"></tbody>
+    </table>
+</div>
 
 <script src="/js/cart.js"></script>
 </body>
