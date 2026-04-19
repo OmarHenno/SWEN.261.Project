@@ -106,7 +106,24 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
   - Implement AuthService service logic (login, logout, current user retrival, and role check)
   - Create login.html and login.js with fetch, success/error messages, form input, and role based ui for frontend
 
-2.
+2. US-A3-03: Manage Flight Catalog (CRUD)
+-Implemented by: Joy
+-Tasks:
+
+    -Added setters to Flight model (setFlightNumber, setDestination, setCategory, setDepartureTime, setSeats, setPrice)
+    -Added saveFlight() method to FlightService for adding new flights
+    - Added updateFlight() method to FlightService for modifying existing flights
+    - Added deleteFlight() method to FlightService for removing flights
+    - Implemented POST /api/flights/add endpoint (admin only)
+    - Implemented PUT /api/flights/{id}/update endpoint (admin only)
+    - Implemented DELETE /api/flights/{id}/delete endpoint (admin only)
+    - Added admin check using AuthService so only admins can modify flights
+    - Added Add Flight button visible to admin users only
+    - Built Add/Edit form with pre-populated fields for edit mode
+    - Added Edit and Delete buttons in flights table (admin only)
+    - Added confirmation popup before deleting a flight
+    - Added success messages after add, update, and delete actions
+    - Added unit tests for saveFlight, updateFlight, and deleteFlight (10/10 tests passing)
 
 3. US-A3-04: Manage Private Booking Cart
 - Implemented by: Madya Alfalasi
