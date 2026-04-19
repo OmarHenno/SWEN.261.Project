@@ -72,4 +72,34 @@ public class FlightServiceTest {
         assertNotNull(flights);
         assertTrue(flights.isEmpty());
     }
+    @Test
+    void saveFlightShouldAddFlightToList() {
+        Flight newFlight = new Flight("XX999", "Sydney", "International",
+                java.time.LocalDateTime.of(2026, 5, 1, 10, 0), 100, 2000.0);
+        flightService.saveFlight(newFlight);
+        assertNotNull(flightService.findByFlightNumber("XX999"));
+    }
+
+    @Test
+    void updateFlightShouldModifyExistingFlight() {
+        Flight updated = new Flight();
+        updated.setDestination("New York");
+        updated.setCategory("International");
+        updated.setDepartureTime(java.time.LocalDateTime.of(2026, 6, 1, 8, 0));
+        updated.setSeats(50);
+        updated.setPrice(2500.0);
+
+        Flight result = flightService.updateFlight("EK202", updated);
+
+        assertNotNull(result);
+        assertEquals("New York", result.getDestination());
+        assertEquals(2500.0, result.getPrice());
+    }
+
+    @Test
+    void deleteFlightShouldRemoveFlightFromList() {
+        boolean deleted = flightService.deleteFlight("EK202");
+        assertTrue(deleted);
+        assertNull(flightService.findByFlightNumber("EK202"));
+    }
 }
