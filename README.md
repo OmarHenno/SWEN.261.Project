@@ -91,7 +91,27 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
     - Added “View My Collection” button in frontend
     - Displayed saved flights in a table
     - Added “Back to Flights” button for navigation
-      
+
+## Assignment 3 – Completed User Stories
+1. US-A3-04: Manage Private Booking Cart
+- Implemented by: Madya Alfalasi
+- Tasks:
+    - Created Cart and CartItem models
+    - Stored carts and cart items using in-memory ArrayList
+    - Linked cart to customer using customerId
+    - Implemented addFlightToCart() with validation for quantity and sold-out flights
+    - Implemented updateQuantity() with validation checks
+    - Implemented removeFlightFromCart() method
+    - Implemented clearCart() method
+    - Implemented getCartByCustomer() method
+    - Added REST endpoints for cart operations (/cart, /cart/add, /cart/update, /cart/remove, /cart/clear)
+    - Connected frontend to backend using Fetch API
+    - Added “Add to Cart” button in flights table
+    - Prevented adding sold-out flights and displayed “Sold Out” in frontend
+    - Created cart page (cart.html)
+    - Displayed cart items in table
+    - Added quantity controls, remove button, and clear cart button
+    - Displayed confirmation and error messages for cart actions
 ## Links
 - **GitHub Repository:** [https://github.com/OmarHenno/SWEN.261.Project]
 - **Trello Board:** [https://trello.com/b/oohUrZmx/airline-booking-system]
