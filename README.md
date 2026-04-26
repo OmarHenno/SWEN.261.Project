@@ -208,4 +208,5 @@ https://www.canva.com/design/DAHARy3NtbU/OmUiFDtqMBOtSEhcH9s8VQ/edit?utm_content
 - **Trello Board:** [https://trello.com/b/oohUrZmx/airline-booking-system]
 - **Functional Requirements:** [https://docs.google.com/document/d/1hIS5PdctGRMD0HX2McC6kIexj2GsmNJRGOslc2PiyXw/edit?tab=t.t1tiqzsjl4rb#heading=h.65a1jwayjipc]
 - **Traceability Matrix:** [https://docs.google.com/spreadsheets/d/1qqbs3zcrVFXm439ohfdp7rLJMMd8G21_1qi0N8dOSZ4/edit?gid=0#gid=0]
+- **Phase 2 Report:** [https://docs.google.com/document/d/1zBFaADpM5uyHiaTdHRNDNF5Rkw4HA2O1vEgkpBZJheQ/edit?usp=sharing]
 - **Phase 2 PowerPoint:** [https://docs.google.com/presentation/d/1hu0fDaZ07ISkvDgC1QcAeoirdJzO1J-T53VpRNiyriE/edit?usp=sharing]
